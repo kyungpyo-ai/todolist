@@ -150,17 +150,17 @@
 - 단위 테스트 및 통합 테스트 작성
 
 **완료 조건**
-- [ ] `POST /api/auth/signup` — 회원가입
-  - [ ] 이메일 형식 검증 (auth.validator.js)
-  - [ ] 비밀번호 최소 8자·영문+숫자 조합 검증
-  - [ ] 이메일 중복 시 409 반환 (BR-09)
-  - [ ] bcrypt 해싱 저장
-  - [ ] 가입 즉시 `기본` 카테고리 자동 생성 (BR-03 전제)
-- [ ] `POST /api/auth/login` — 로그인
-  - [ ] 이메일 미존재 또는 비밀번호 불일치 시 401 반환 (원인 구분 없음)
-  - [ ] JWT 토큰 발급 (payload: userId, exp)
-- [ ] 단위 테스트: `tests/unit/auth.service.test.js` 작성 및 통과
-- [ ] 통합 테스트: `tests/integration/auth.router.test.js` 작성 및 통과
+- [x] `POST /api/auth/signup` — 회원가입
+  - [x] 이메일 형식 검증 (auth.validator.js)
+  - [x] 비밀번호 최소 8자·영문+숫자 조합 검증
+  - [x] 이메일 중복 시 409 반환 (BR-09)
+  - [x] bcrypt 해싱 저장
+  - [x] 가입 즉시 `기본` 카테고리 자동 생성 (BR-03 전제)
+- [x] `POST /api/auth/login` — 로그인
+  - [x] 이메일 미존재 또는 비밀번호 불일치 시 401 반환 (원인 구분 없음)
+  - [x] JWT 토큰 발급 (payload: userId, exp)
+- [x] 단위 테스트: `tests/unit/auth.service.test.js` 작성 및 통과
+- [x] 통합 테스트: `tests/integration/auth.router.test.js` 작성 및 통과
 
 **의존성**
 - BE-02 완료, DB-02 완료

@@ -265,16 +265,16 @@
 - `.env` / `.env.example` 환경변수 파일 작성
 
 **완료 조건**
-- [ ] `frontend/` Vite + React 19 + TypeScript 프로젝트 생성
-- [ ] 의존성 설치
+- [x] `frontend/` Vite + React 19 + TypeScript 프로젝트 생성
+- [x] 의존성 설치
   - 런타임: `zustand`, `@tanstack/react-query`, `react-router-dom`
   - 개발: `vitest`, `@testing-library/react`
-- [ ] 디렉토리 구조 생성 (설계 원칙 섹션 6 기준)
-- [ ] `src/types/` — `user.ts`, `todo.ts`, `category.ts` TypeScript 인터페이스 정의
-- [ ] `src/utils/dateUtils.ts` — 날짜 포맷, `endDate >= startDate` 검증
-- [ ] `src/utils/validationUtils.ts` — 이메일, 비밀번호 형식 검증
-- [ ] `.env`, `.env.example` 작성 (`VITE_API_BASE_URL` 포함)
-- [ ] `npm run dev` 실행 시 빈 화면 정상 표시 확인
+- [x] 디렉토리 구조 생성 (설계 원칙 섹션 6 기준)
+- [x] `src/types/` — `user.ts`, `todo.ts`, `category.ts` TypeScript 인터페이스 정의
+- [x] `src/utils/dateUtils.ts` — 날짜 포맷, `endDate >= startDate` 검증
+- [x] `src/utils/validationUtils.ts` — 이메일, 비밀번호 형식 검증
+- [x] `.env`, `.env.example` 작성 (`VITE_API_BASE_URL` 포함)
+- [x] `npm run dev` 실행 시 빈 화면 정상 표시 확인
 
 **의존성**
 - 없음 (BE-01과 병렬 진행 가능)

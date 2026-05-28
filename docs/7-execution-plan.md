@@ -129,12 +129,12 @@
 - 요청 로거 미들웨어 작성
 
 **완료 조건**
-- [ ] `src/utils/jwt.js` — 토큰 생성(`sign`), 검증(`verify`) 함수
-- [ ] `src/utils/password.js` — `bcrypt.hash`, `bcrypt.compare` 래퍼
-- [ ] `src/middleware/auth.middleware.js` — JWT 검증, 미인증 시 401 반환 (BR-01)
-- [ ] `src/middleware/error.middleware.js` — 전역 에러 핸들러, 통일된 응답 형식 `{ success, message, code }`
-- [ ] `src/middleware/logger.middleware.js` — 메서드·경로·상태코드·응답시간 로깅
-- [ ] 500 응답에 스택 트레이스 미포함 확인
+- [x] `src/utils/jwt.js` — 토큰 생성(`sign`), 검증(`verify`) 함수
+- [x] `src/utils/password.js` — `bcrypt.hash`, `bcrypt.compare` 래퍼
+- [x] `src/middleware/auth.middleware.js` — JWT 검증, 미인증 시 401 반환 (BR-01)
+- [x] `src/middleware/error.middleware.js` — 전역 에러 핸들러, 통일된 응답 형식 `{ success, message, code }`
+- [x] `src/middleware/logger.middleware.js` — 메서드·경로·상태코드·응답시간 로깅
+- [x] 500 응답에 스택 트레이스 미포함 확인
 
 **의존성**
 - BE-01 완료

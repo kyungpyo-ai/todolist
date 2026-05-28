@@ -200,17 +200,17 @@
 - 단위·통합 테스트 작성
 
 **완료 조건**
-- [ ] `GET /api/categories` — 본인 카테고리 목록 조회 (BR-02)
-- [ ] `POST /api/categories` — 카테고리 생성
-  - [ ] 이름 필수 검증 (category.validator.js)
-- [ ] `PATCH /api/categories/:id` — 카테고리 수정
-  - [ ] `is_default=true` 시 403 반환 (BR-07)
-  - [ ] 타인 카테고리 403 반환 (BR-02)
-- [ ] `DELETE /api/categories/:id` — 카테고리 삭제
-  - [ ] `is_default=true` 시 403 반환 (BR-07)
-  - [ ] 삭제 시 해당 카테고리 todos의 category_id를 기본 카테고리로 일괄 변경
-- [ ] 단위 테스트: `tests/unit/category.service.test.js` 작성 및 통과
-- [ ] 통합 테스트: `tests/integration/category.router.test.js` 작성 및 통과
+- [x] `GET /api/categories` — 본인 카테고리 목록 조회 (BR-02)
+- [x] `POST /api/categories` — 카테고리 생성
+  - [x] 이름 필수 검증 (category.validator.js)
+- [x] `PATCH /api/categories/:id` — 카테고리 수정
+  - [x] `is_default=true` 시 403 반환 (BR-07)
+  - [x] 타인 카테고리 403 반환 (BR-02)
+- [x] `DELETE /api/categories/:id` — 카테고리 삭제
+  - [x] `is_default=true` 시 403 반환 (BR-07)
+  - [x] 삭제 시 해당 카테고리 todos의 category_id를 기본 카테고리로 일괄 변경
+- [x] 단위 테스트: `tests/unit/category.service.test.js` 작성 및 통과
+- [x] 통합 테스트: `tests/integration/category.router.test.js` 작성 및 통과
 
 **의존성**
 - BE-03 완료
@@ -228,22 +228,22 @@
 - 단위·통합 테스트 작성 (BR-04, BR-05 케이스 포함)
 
 **완료 조건**
-- [ ] `GET /api/todos` — 할일 목록 조회 (BR-02)
-  - [ ] 쿼리 파라미터 필터: `categoryId`, `status`, `overdue`
-  - [ ] Overdue 필터: `end_date < 오늘 AND status != DONE`
-- [ ] `POST /api/todos` — 할일 등록
-  - [ ] 제목 필수, 날짜 형식 검증 (todo.validator.js)
-  - [ ] `end_date >= start_date` 검증 (BR-04)
-  - [ ] 카테고리 미지정 시 기본 카테고리 자동 적용 (BR-03)
-- [ ] `GET /api/todos/:id` — 할일 단건 조회
-- [ ] `PATCH /api/todos/:id` — 할일 수정
-  - [ ] `end_date >= start_date` 검증 (BR-04)
-  - [ ] 허용된 상태 전이만 허용 (BR-05): NOT_STARTED↔IN_PROGRESS, IN_PROGRESS↔DONE
-  - [ ] 타인 할일 403 반환 (BR-02)
-- [ ] `DELETE /api/todos/:id` — 할일 삭제
-  - [ ] 타인 할일 403 반환 (BR-02)
-- [ ] 단위 테스트: `tests/unit/todo.service.test.js` 작성 및 통과 (BR-04, BR-05 포함)
-- [ ] 통합 테스트: `tests/integration/todo.router.test.js` 작성 및 통과
+- [x] `GET /api/todos` — 할일 목록 조회 (BR-02)
+  - [x] 쿼리 파라미터 필터: `categoryId`, `status`, `overdue`
+  - [x] Overdue 필터: `end_date < 오늘 AND status != DONE`
+- [x] `POST /api/todos` — 할일 등록
+  - [x] 제목 필수, 날짜 형식 검증 (todo.validator.js)
+  - [x] `end_date >= start_date` 검증 (BR-04)
+  - [x] 카테고리 미지정 시 기본 카테고리 자동 적용 (BR-03)
+- [x] `GET /api/todos/:id` — 할일 단건 조회
+- [x] `PATCH /api/todos/:id` — 할일 수정
+  - [x] `end_date >= start_date` 검증 (BR-04)
+  - [x] 허용된 상태 전이만 허용 (BR-05): NOT_STARTED↔IN_PROGRESS, IN_PROGRESS↔DONE
+  - [x] 타인 할일 403 반환 (BR-02)
+- [x] `DELETE /api/todos/:id` — 할일 삭제
+  - [x] 타인 할일 403 반환 (BR-02)
+- [x] 단위 테스트: `tests/unit/todo.service.test.js` 작성 및 통과 (BR-04, BR-05 포함)
+- [x] 통합 테스트: `tests/integration/todo.router.test.js` 작성 및 통과
 
 **의존성**
 - BE-05 완료 (기본 카테고리 참조)

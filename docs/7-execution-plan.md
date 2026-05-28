@@ -176,14 +176,14 @@
 - 단위 테스트 작성
 
 **완료 조건**
-- [ ] `GET /api/users/me` — 내 정보 조회 (인증 필요)
-- [ ] `PATCH /api/users/me` — 내 정보 수정 (이름, 비밀번호)
-  - [ ] 비밀번호 변경 시 조건 검증
-  - [ ] 타인 데이터 수정 불가 (BR-06) — auth middleware로 보장
-- [ ] `DELETE /api/users/me` — 회원 탈퇴
-  - [ ] 비밀번호 확인 후 삭제
-  - [ ] users 삭제 시 CASCADE로 categories·todos 연쇄 삭제 (BR-08) 확인
-- [ ] 단위 테스트: `tests/unit/user.service.test.js` 작성 및 통과
+- [x] `GET /api/users/me` — 내 정보 조회 (인증 필요)
+- [x] `PATCH /api/users/me` — 내 정보 수정 (이름, 비밀번호)
+  - [x] 비밀번호 변경 시 조건 검증
+  - [x] 타인 데이터 수정 불가 (BR-06) — auth middleware로 보장
+- [x] `DELETE /api/users/me` — 회원 탈퇴
+  - [x] 비밀번호 확인 후 삭제
+  - [x] users 삭제 시 CASCADE로 categories·todos 연쇄 삭제 (BR-08) 확인
+- [x] 단위 테스트: `tests/unit/user.service.test.js` 작성 및 통과
 
 **의존성**
 - BE-03 완료

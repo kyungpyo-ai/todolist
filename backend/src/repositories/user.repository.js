@@ -32,4 +32,30 @@ async function create({ email, password, name }) {
   return toUser(result.rows[0]);
 }
 
-module.exports = { findByEmail, findById, create };
+async function update(id, fields) {
+  const setClauses = [];
+  const values = [];
+  let idx = 1;
+
+  if (fields.name !== undefined) {
+    setClauses.push(`name = $${idx++}`);
+    values.push(fields.name);
+  }
+  if (fields.password !== undefined) {
+    setClauses.push(`password = $${idx++}`);
+    values.push(fields.password);
+  }
+
+  values.push(id);
+  const result = await pool.query(
+    `UPDATE users SET ${setClauses.join(', ')}, updated_at = NOW() WHERE id = $${idx} RETURNING *`,
+    values
+  );
+  return toUser(result.rows[0]);
+}
+
+async function deleteById(id) {
+  await pool.query('DELETE FROM users WHERE id = $1', [id]);
+}
+
+module.exports = { findByEmail, findById, create, update, deleteById };

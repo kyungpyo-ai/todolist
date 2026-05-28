@@ -43,11 +43,11 @@
 - 백엔드 `.env`에 `DATABASE_URL` 연결 문자열 등록
 
 **완료 조건**
-- [ ] PostgreSQL 17 설치 및 서비스 실행 확인
-- [ ] `todolist` 데이터베이스 생성
-- [ ] 접속용 전용 유저 생성 및 권한 부여
-- [ ] `.env` 파일에 `DATABASE_URL` 설정 완료
-- [ ] `psql` 또는 클라이언트로 접속 성공 확인
+- [x] PostgreSQL 17 설치 및 서비스 실행 확인
+- [x] `todolist` 데이터베이스 생성
+- [x] 접속용 전용 유저 생성 및 권한 부여
+- [x] `.env` 파일에 `DATABASE_URL` 설정 완료
+- [x] `psql` 또는 클라이언트로 접속 성공 확인
 
 **의존성**
 - 없음 (시작점)
@@ -62,11 +62,11 @@
 - CASCADE DELETE 및 CHECK 제약 동작 수동 검증
 
 **완료 조건**
-- [ ] `database/schema.sql` 실행 성공 (오류 없음)
-- [ ] `users`, `categories`, `todos` 3개 테이블 생성 확인
-- [ ] 제약 조건 확인: UNIQUE(email), CHECK(end_date >= start_date), CHECK(status), CHECK(theme), CHECK(language)
-- [ ] 인덱스 5개 생성 확인
-- [ ] CASCADE DELETE 동작 확인 (users 삭제 시 categories·todos 연쇄 삭제)
+- [x] `database/schema.sql` 실행 성공 (오류 없음)
+- [x] `users`, `categories`, `todos` 3개 테이블 생성 확인
+- [x] 제약 조건 확인: UNIQUE(email), CHECK(end_date >= start_date), CHECK(status), CHECK(theme), CHECK(language)
+- [x] 인덱스 5개 생성 확인
+- [x] CASCADE DELETE 동작 확인 (users 삭제 시 categories·todos 연쇄 삭제)
 
 **의존성**
 - DB-01 완료
@@ -81,10 +81,10 @@
 - 실행 순서와 적용 방법을 주석 또는 README로 명시
 
 **완료 조건**
-- [ ] `database/migrations/` 디렉토리 생성
-- [ ] `001_initial_schema.sql` — 초기 스키마 (v1 테이블 3개)
-- [ ] `002_add_user_theme_language.sql` — v2 theme·language 컬럼 추가용 ALTER 문 작성
-- [ ] 마이그레이션 실행 순서 README 또는 주석 명시
+- [x] `database/migrations/` 디렉토리 생성
+- [x] `001_initial_schema.sql` — 초기 스키마 (v1 테이블 3개)
+- [x] `002_add_user_theme_language.sql` — v2 theme·language 컬럼 추가용 ALTER 문 작성
+- [x] 마이그레이션 실행 순서 README 또는 주석 명시
 
 **의존성**
 - DB-02 완료

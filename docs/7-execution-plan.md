@@ -105,14 +105,14 @@
 - 서버 진입점(`server.js`) 작성 및 기동 확인
 
 **완료 조건**
-- [ ] `backend/` 디렉토리 구조 생성 (설계 원칙 섹션 7 기준)
-- [ ] `package.json` 초기화, 의존성 설치
+- [x] `backend/` 디렉토리 구조 생성 (설계 원칙 섹션 7 기준)
+- [x] `package.json` 초기화, 의존성 설치
   - 런타임: `express`, `pg`, `bcrypt`, `jsonwebtoken`, `cors`, `dotenv`
   - 개발: `nodemon`, `jest`, `supertest`
-- [ ] `.env`, `.env.example` 작성 (설계 원칙 섹션 5-1 기준)
-- [ ] `src/config/app.js` — Express 앱 설정 (CORS, bodyParser, JSON)
-- [ ] `src/config/db.js` — pg Pool 설정 및 연결 테스트 통과
-- [ ] `node src/server.js` 실행 시 서버 정상 기동 확인
+- [x] `.env`, `.env.example` 작성 (설계 원칙 섹션 5-1 기준)
+- [x] `src/config/app.js` — Express 앱 설정 (CORS, bodyParser, JSON)
+- [x] `src/config/db.js` — pg Pool 설정 및 연결 테스트 통과
+- [x] `node src/server.js` 실행 시 서버 정상 기동 확인
 
 **의존성**
 - DB-01 완료

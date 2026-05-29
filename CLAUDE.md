@@ -52,6 +52,51 @@ todolist/
 | 설계 원칙 | `docs/4-project-structure-principles.md` |
 | API 명세 | `backend/swagger.json` |
 
+## 기능 추가 시 문서 관리
+
+### 개발 중 (임시 문서 — `docs/features/`)
+
+기능 하나당 2개 파일 생성:
+
+```
+docs/features/
+├── {feature-name}.md        # 요구사항 (무엇을)
+└── {feature-name}-plan.md   # 실행계획 (어떤 순서로)
+```
+
+요구사항 문서 섹션: 목적 / 요구사항 / UI·UX / 신규 API / 완료 조건 체크리스트
+실행계획 문서 섹션: 백엔드 (BE-XX) / 프론트엔드 (FE-XX) / 의존성
+
+### 기능 완료 후 처리
+
+완료 조건 체크리스트 전부 ✅ 시 즉시 처리
+
+| 문서 | 처리 방법 |
+|------|-----------|
+| `{feature-name}.md` | 아래 병합 기준에 따라 병합 후 삭제 |
+| `{feature-name}-plan.md` | `docs/archive/` 로 이동 |
+
+### 병합 기준
+
+| 내용 | 병합 위치 |
+|------|-----------|
+| 새 비즈니스 규칙 (BR-XX) | `docs/1-domain-definition.md` |
+| 새 기능 요구사항, 시나리오 | `docs/2-PRD.md` |
+| DB 스키마 변경 | `docs/6-erd.md` |
+| 새 API 엔드포인트 | `backend/swagger.json` |
+| 모듈/서비스 구조 변경 | `docs/5-arch-diagram.md` |
+
+### 항상 최신 상태 유지 문서
+
+- `docs/1-domain-definition.md` — 도메인 규칙
+- `docs/2-PRD.md` — 기능 요구사항
+- `docs/5-arch-diagram.md` — 아키텍처
+- `docs/6-erd.md` — ERD
+- `docs/10-style-guide.md` — 스타일 규칙
+- `backend/swagger.json` — API 명세
+
+---
+
 ## 도메인 규칙 요약
 
 | 규칙 | 내용 |

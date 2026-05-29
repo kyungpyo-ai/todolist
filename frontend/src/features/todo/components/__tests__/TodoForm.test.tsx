@@ -11,8 +11,8 @@ vi.mock('../../../../utils/dateUtils', () => ({
 }));
 
 const mockCategories: Category[] = [
-  { id: 'cat-1', name: '업무', isDefault: false },
-  { id: 'cat-2', name: '개인', isDefault: false },
+  { id: 'cat-1', userId: 'user-1', name: '업무', isDefault: false, createdAt: '2026-05-01T00:00:00Z', updatedAt: '2026-05-01T00:00:00Z' },
+  { id: 'cat-2', userId: 'user-1', name: '개인', isDefault: false, createdAt: '2026-05-01T00:00:00Z', updatedAt: '2026-05-01T00:00:00Z' },
 ];
 
 const mockTodo: Todo = {

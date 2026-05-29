@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createElement } from 'react';
@@ -59,11 +59,11 @@ beforeEach(() => {
   mockUpdateMe.mockReturnValue({
     mutate: mutateFn,
     isPending: false,
-  } as ReturnType<typeof useUpdateMe>);
+  } as unknown as ReturnType<typeof useUpdateMe>);
   mockDeleteMe.mockReturnValue({
     mutate: deleteMutateFn,
     isPending: false,
-  } as ReturnType<typeof useDeleteMe>);
+  } as unknown as ReturnType<typeof useDeleteMe>);
 });
 
 function renderProfilePage() {

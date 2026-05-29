@@ -30,6 +30,8 @@ const mockUser = {
   id: 'user-1',
   email: 'test@example.com',
   name: '홍길동',
+  theme: 'light' as const,
+  language: 'ko' as const,
   createdAt: '2026-05-01T00:00:00Z',
   updatedAt: '2026-05-01T00:00:00Z',
 };

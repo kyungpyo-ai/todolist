@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import TodoListPage from './pages/TodoListPage';
 import CategoryPage from './pages/CategoryPage';
+import CalendarPage from './pages/CalendarPage';
 import ProfilePage from './pages/ProfilePage';
 
 const queryClient = new QueryClient({
@@ -36,6 +37,14 @@ export default function App() {
             element={
               <Layout>
                 <CategoryPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/calendar"
+            element={
+              <Layout>
+                <CalendarPage />
               </Layout>
             }
           />

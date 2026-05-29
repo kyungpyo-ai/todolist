@@ -1,0 +1,257 @@
+.calendar-page {
+  padding: 16px;
+  height: calc(100vh - var(--header-height));
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.calendar-page__title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-neutral-900);
+  margin: 0 0 12px;
+}
+
+.calendar-page__body {
+  flex: 1;
+  min-height: 0;
+}
+
+/* react-big-calendar 스타일 재정의 */
+.rbc-calendar {
+  font-family: var(--font-family);
+  font-size: var(--font-sm);
+  height: 100%;
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+}
+
+.rbc-header {
+  background: var(--color-primary-050);
+  color: var(--color-primary-700);
+  font-weight: 700;
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--color-neutral-300);
+}
+
+.rbc-today {
+  background: var(--color-primary-050);
+}
+
+.rbc-off-range-bg {
+  background: var(--color-neutral-050);
+}
+
+.rbc-toolbar button {
+  font-family: var(--font-family);
+  font-size: var(--font-sm);
+  color: var(--color-neutral-700);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  cursor: pointer;
+  background: var(--color-white);
+}
+
+.rbc-toolbar button:hover {
+  background: var(--color-primary-050);
+  border-color: var(--color-primary-500);
+  color: var(--color-primary-700);
+}
+
+.rbc-toolbar button.rbc-active {
+  background: var(--color-primary-500);
+  color: var(--color-white);
+  border-color: var(--color-primary-500);
+}
+
+.rbc-toolbar-label {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--color-neutral-900);
+}
+
+/* 이벤트 상태별 색상 */
+.rbc-event.event--not-started {
+  background: var(--color-neutral-500);
+  border-color: var(--color-neutral-700);
+}
+
+.rbc-event.event--in-progress {
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-700);
+}
+
+.rbc-event.event--done {
+  background: var(--color-success-600);
+  border-color: var(--color-success-600);
+  opacity: 0.75;
+}
+
+.rbc-event {
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
+  padding: 1px 4px;
+  cursor: pointer;
+}
+
+.rbc-event:focus {
+  outline: 2px solid var(--color-primary-500);
+}
+
+/* 다크 모드 */
+[data-theme='dark'] .rbc-calendar {
+  background: var(--color-neutral-900);
+  border-color: var(--color-neutral-700);
+  color: var(--color-neutral-100);
+}
+
+[data-theme='dark'] .rbc-header {
+  background: var(--color-neutral-700);
+  color: var(--color-neutral-100);
+  border-color: var(--color-neutral-700);
+}
+
+[data-theme='dark'] .rbc-today {
+  background: #1e3a8a33;
+}
+
+[data-theme='dark'] .rbc-off-range-bg {
+  background: #1f2937;
+}
+
+[data-theme='dark'] .rbc-toolbar button {
+  background: var(--color-neutral-700);
+  color: var(--color-neutral-100);
+  border-color: var(--color-neutral-500);
+}
+
+[data-theme='dark'] .rbc-toolbar button:hover {
+  background: var(--color-primary-700);
+}
+
+[data-theme='dark'] .rbc-toolbar-label {
+  color: var(--color-neutral-100);
+}
+
+[data-theme='dark'] .rbc-month-view,
+[data-theme='dark'] .rbc-date-cell,
+[data-theme='dark'] .rbc-day-bg {
+  border-color: var(--color-neutral-700);
+  color: var(--color-neutral-100);
+}
+
+[data-theme='dark'] .calendar-page__title {
+  color: var(--color-neutral-100);
+}
+
+/* 상세 모달 */
+.todo-detail-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.todo-detail-modal {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal);
+  padding: 20px 24px;
+  width: 380px;
+  max-width: 90vw;
+}
+
+.todo-detail-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.todo-detail-modal__title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-neutral-900);
+  margin: 0;
+  word-break: break-word;
+}
+
+.todo-detail-modal__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-neutral-500);
+  font-size: 18px;
+  padding: 0;
+  line-height: 1;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.todo-detail-modal__close:hover {
+  color: var(--color-neutral-900);
+}
+
+.todo-detail-modal__row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: var(--font-sm);
+}
+
+.todo-detail-modal__label {
+  color: var(--color-neutral-500);
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.todo-detail-modal__value {
+  color: var(--color-neutral-900);
+  word-break: break-word;
+}
+
+.todo-detail-modal__status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: var(--font-xs);
+  font-weight: 700;
+}
+
+.todo-detail-modal__status-badge--not-started {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-700);
+}
+
+.todo-detail-modal__status-badge--in-progress {
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.todo-detail-modal__status-badge--done {
+  background: var(--color-success-100);
+  color: var(--color-success-600);
+}
+
+/* 다크 모드 모달 */
+[data-theme='dark'] .todo-detail-modal {
+  background: var(--color-neutral-700);
+}
+
+[data-theme='dark'] .todo-detail-modal__title {
+  color: var(--color-neutral-100);
+}
+
+[data-theme='dark'] .todo-detail-modal__value {
+  color: var(--color-neutral-100);
+}
+
+[data-theme='dark'] .todo-detail-modal__close:hover {
+  color: var(--color-neutral-100);
+}

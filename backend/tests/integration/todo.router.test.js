@@ -185,3 +185,154 @@ describe('DELETE /api/todos/:id', () => {
     expect(res.body.success).toBe(true);
   });
 });
+
+describe('GET /api/todos - month 필터', () => {
+  const MONTH_TEST_EMAIL_DOMAIN = '@test-be07.example';
+  const MONTH_TEST_EMAIL = `todo-month-test${MONTH_TEST_EMAIL_DOMAIN}`;
+  let monthToken;
+
+  beforeAll(async () => {
+    // BE-07 전용 테스트 유저 생성
+    await pool.query(
+      `INSERT INTO users (email, password, name)
+       VALUES ($1, $2, $3)
+       ON CONFLICT (email) DO NOTHING`,
+      [MONTH_TEST_EMAIL, '$2b$10$hashedpassword', 'month필터테스터']
+    );
+
+    const userResult = await pool.query(
+      'SELECT id FROM users WHERE email = $1',
+      [MONTH_TEST_EMAIL]
+    );
+    const userId = userResult.rows[0].id;
+
+    // 기본 카테고리 생성
+    await pool.query(
+      `INSERT INTO categories (user_id, name, is_default)
+       VALUES ($1, $2, $3)
+       ON CONFLICT DO NOTHING`,
+      [userId, '기본', true]
+    );
+
+    monthToken = sign(userId);
+
+    // 테스트용 todo 데이터 삽입
+    // 2026-05 월 내 할일
+    await pool.query(
+      `INSERT INTO todos (user_id, category_id, title, start_date, end_date, status)
+       SELECT $1, c.id, $2, $3, $4, $5
+       FROM categories c
+       WHERE c.user_id = $1 AND c.is_default = true
+       LIMIT 1`,
+      [userId, '5월 할일', '2026-05-10', '2026-05-20', 'NOT_STARTED']
+    );
+
+    // 2026-05 월 내 할일 (IN_PROGRESS)
+    await pool.query(
+      `INSERT INTO todos (user_id, category_id, title, start_date, end_date, status)
+       SELECT $1, c.id, $2, $3, $4, $5
+       FROM categories c
+       WHERE c.user_id = $1 AND c.is_default = true
+       LIMIT 1`,
+      [userId, '5월 진행중 할일', '2026-05-15', '2026-05-25', 'IN_PROGRESS']
+    );
+
+    // 2026-04 월 할일 (month 범위 밖)
+    await pool.query(
+      `INSERT INTO todos (user_id, category_id, title, start_date, end_date, status)
+       SELECT $1, c.id, $2, $3, $4, $5
+       FROM categories c
+       WHERE c.user_id = $1 AND c.is_default = true
+       LIMIT 1`,
+      [userId, '4월 할일', '2026-04-10', '2026-04-30', 'NOT_STARTED']
+    );
+
+    // 2026-06 월 할일 (month 범위 밖)
+    await pool.query(
+      `INSERT INTO todos (user_id, category_id, title, start_date, end_date, status)
+       SELECT $1, c.id, $2, $3, $4, $5
+       FROM categories c
+       WHERE c.user_id = $1 AND c.is_default = true
+       LIMIT 1`,
+      [userId, '6월 할일', '2026-06-01', '2026-06-10', 'NOT_STARTED']
+    );
+  });
+
+  afterAll(async () => {
+    await pool.query(`DELETE FROM users WHERE email LIKE '%${MONTH_TEST_EMAIL_DOMAIN}'`);
+  });
+
+  it('month=2026-05 요청 시 해당 월 할일만 반환한다', async () => {
+    const res = await request(app)
+      .get('/api/todos?month=2026-05')
+      .set('Authorization', `Bearer ${monthToken}`);
+
+    expect(res.status).toBe(200);
+    expect(res.body.success).toBe(true);
+
+    const todos = res.body.data.todos;
+    expect(todos.length).toBe(2);
+    todos.forEach((todo) => {
+      expect(todo.startDate.startsWith('2026-05')).toBe(true);
+    });
+  });
+
+  it('month 범위 밖 할일은 반환되지 않는다', async () => {
+    const res = await request(app)
+      .get('/api/todos?month=2026-05')
+      .set('Authorization', `Bearer ${monthToken}`);
+
+    expect(res.status).toBe(200);
+
+    const todos = res.body.data.todos;
+    const outOfRange = todos.filter(
+      (todo) => !todo.startDate.startsWith('2026-05')
+    );
+    expect(outOfRange.length).toBe(0);
+  });
+
+  it('month + status 조합 필터가 정상 동작한다', async () => {
+    const res = await request(app)
+      .get('/api/todos?month=2026-05&status=IN_PROGRESS')
+      .set('Authorization', `Bearer ${monthToken}`);
+
+    expect(res.status).toBe(200);
+
+    const todos = res.body.data.todos;
+    expect(todos.length).toBe(1);
+    expect(todos[0].title).toBe('5월 진행중 할일');
+    expect(todos[0].status).toBe('IN_PROGRESS');
+    expect(todos[0].startDate.startsWith('2026-05')).toBe(true);
+  });
+
+  it('잘못된 month 형식(2026-5) 요청 시 400을 반환한다', async () => {
+    const res = await request(app)
+      .get('/api/todos?month=2026-5')
+      .set('Authorization', `Bearer ${monthToken}`);
+
+    expect(res.status).toBe(400);
+    expect(res.body.success).toBe(false);
+  });
+
+  it('잘못된 month 형식(2026/05) 요청 시 400을 반환한다', async () => {
+    const res = await request(app)
+      .get('/api/todos?month=2026/05')
+      .set('Authorization', `Bearer ${monthToken}`);
+
+    expect(res.status).toBe(400);
+    expect(res.body.success).toBe(false);
+  });
+
+  it('month 없이 요청 시 전체 할일을 반환한다', async () => {
+    const res = await request(app)
+      .get('/api/todos')
+      .set('Authorization', `Bearer ${monthToken}`);
+
+    expect(res.status).toBe(200);
+    expect(res.body.success).toBe(true);
+
+    const todos = res.body.data.todos;
+    // 4개 월 전체 데이터가 모두 반환됨
+    expect(todos.length).toBe(4);
+  });
+});

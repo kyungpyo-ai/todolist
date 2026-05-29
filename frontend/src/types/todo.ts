@@ -46,4 +46,5 @@ export interface TodoFilter {
   categoryId?: string;
   status?: TodoStatus;
   overdue?: boolean;
+  month?: string; // YYYY-MM
 }

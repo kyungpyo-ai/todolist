@@ -8,6 +8,7 @@ export default function IconNav() {
   const NAV_ITEMS = [
     { to: '/todos', label: t('nav.todos'), icon: '☑' },
     { to: '/categories', label: t('nav.categories'), icon: '🏷' },
+    { to: '/calendar', label: t('nav.calendar'), icon: '📅' },
     { to: '/profile', label: t('nav.profile'), icon: '👤' },
   ];
 

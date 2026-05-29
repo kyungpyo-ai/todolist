@@ -10,8 +10,8 @@ const ALLOWED_TRANSITIONS = {
   DONE: ['IN_PROGRESS'],
 };
 
-async function getTodos(userId, { categoryId, status, overdue } = {}) {
-  return todoRepository.findAllByUserId(userId, { categoryId, status, overdue });
+async function getTodos(userId, { categoryId, status, overdue, month } = {}) {
+  return todoRepository.findAllByUserId(userId, { categoryId, status, overdue, month });
 }
 
 async function createTodo(userId, { title, startDate, endDate, categoryId, description }) {

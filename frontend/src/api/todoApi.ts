@@ -13,6 +13,9 @@ export async function getTodos(filter?: TodoFilter): Promise<Todo[]> {
   if (filter?.overdue === true) {
     params.overdue = 'true';
   }
+  if (filter?.month) {
+    params.month = filter.month;
+  }
 
   const res = await apiClient.get<{ success: true; data: { todos: Todo[] } }>('/api/todos', { params });
   return res.data.data.todos;

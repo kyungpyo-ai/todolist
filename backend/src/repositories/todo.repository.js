@@ -16,7 +16,7 @@ function toTodo(row) {
   };
 }
 
-async function findAllByUserId(userId, { categoryId, status, overdue } = {}) {
+async function findAllByUserId(userId, { categoryId, status, overdue, month } = {}) {
   const conditions = ['t.user_id = $1'];
   const values = [userId];
   let idx = 2;
@@ -31,6 +31,13 @@ async function findAllByUserId(userId, { categoryId, status, overdue } = {}) {
   }
   if (overdue) {
     conditions.push(`t.end_date < CURRENT_DATE AND t.status != 'DONE'`);
+  }
+  if (month) {
+    const [year, mon] = month.split('-').map(Number);
+    const start = `${year}-${String(mon).padStart(2, '0')}-01`;
+    const nextMonth = mon === 12 ? `${year + 1}-01-01` : `${year}-${String(mon + 1).padStart(2, '0')}-01`;
+    conditions.push(`t.start_date >= $${idx++} AND t.start_date < $${idx++}`);
+    values.push(start, nextMonth);
   }
 
   const where = conditions.join(' AND ');

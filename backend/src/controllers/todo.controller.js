@@ -1,12 +1,15 @@
 const todoService = require('../services/todo.service');
+const { validateMonth } = require('../validators/todo.validator');
 
 async function getTodos(req, res, next) {
   try {
-    const { categoryId, status, overdue } = req.query;
+    const { categoryId, status, overdue, month } = req.query;
+    if (month) validateMonth(month);
     const todos = await todoService.getTodos(req.userId, {
       categoryId,
       status,
       overdue: overdue === 'true',
+      month,
     });
     res.status(200).json({ success: true, data: { todos } });
   } catch (err) {

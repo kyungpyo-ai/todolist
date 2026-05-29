@@ -12,4 +12,15 @@ function validateTodoBody({ title, startDate, endDate }) {
   }
 }
 
-module.exports = { validateTodoBody };
+// YYYY-MM 형식 검증
+function validateMonth(month) {
+  if (!/^\d{4}-\d{2}$/.test(month)) {
+    throw new AppError('month는 YYYY-MM 형식이어야 합니다.', 400, 'INVALID_INPUT');
+  }
+  const [year, mon] = month.split('-').map(Number);
+  if (mon < 1 || mon > 12) {
+    throw new AppError('month의 월 값이 유효하지 않습니다.', 400, 'INVALID_INPUT');
+  }
+}
+
+module.exports = { validateTodoBody, validateMonth };

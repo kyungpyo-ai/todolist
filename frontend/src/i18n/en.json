@@ -37,7 +37,20 @@
   "nav": {
     "todos": "Todos",
     "categories": "Categories",
+    "calendar": "Calendar",
     "profile": "Profile"
+  },
+  "calendar": {
+    "title": "Calendar",
+    "loading": "Loading...",
+    "empty": "No todos this month.",
+    "closeModal": "Close",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "category": "Category",
+    "status": "Status",
+    "description": "Description",
+    "noDescription": "No description"
   },
   "todo": {
     "title": "Todo List",

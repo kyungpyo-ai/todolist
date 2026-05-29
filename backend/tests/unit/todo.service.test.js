@@ -420,3 +420,71 @@ describe('TodoService - deleteTodo', () => {
     });
   });
 });
+
+describe('TodoService - getTodos with month filter', () => {
+  let todoService;
+  let todoRepository;
+
+  beforeEach(() => {
+    jest.resetModules();
+
+    jest.doMock('../../src/repositories/todo.repository', () => ({
+      findAllByUserId: jest.fn(),
+      findById: jest.fn(),
+      create: jest.fn(),
+      update: jest.fn(),
+      deleteById: jest.fn(),
+    }));
+    jest.doMock('../../src/repositories/category.repository', () => ({
+      findDefaultByUserId: jest.fn(),
+      findById: jest.fn(),
+    }));
+    jest.doMock('../../src/validators/todo.validator', () => ({
+      validateTodoBody: jest.fn(),
+    }));
+
+    todoService = require('../../src/services/todo.service');
+    todoRepository = require('../../src/repositories/todo.repository');
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('month 파라미터가 repository에 그대로 전달된다', async () => {
+    todoRepository.findAllByUserId.mockResolvedValue([]);
+
+    await todoService.getTodos('user-1', { month: '2026-05' });
+
+    expect(todoRepository.findAllByUserId).toHaveBeenCalledWith(
+      'user-1',
+      expect.objectContaining({ month: '2026-05' })
+    );
+  });
+
+  it('month 없이 호출해도 repository가 정상 호출된다', async () => {
+    const fakeTodos = [
+      { id: 'todo-1', userId: 'user-1', title: '할일1', status: 'NOT_STARTED' },
+    ];
+    todoRepository.findAllByUserId.mockResolvedValue(fakeTodos);
+
+    const result = await todoService.getTodos('user-1', {});
+
+    expect(result).toEqual(fakeTodos);
+    expect(todoRepository.findAllByUserId).toHaveBeenCalledWith(
+      'user-1',
+      expect.any(Object)
+    );
+  });
+
+  it('month와 status를 함께 전달하면 둘 다 repository에 전달된다', async () => {
+    todoRepository.findAllByUserId.mockResolvedValue([]);
+
+    await todoService.getTodos('user-1', { month: '2026-05', status: 'IN_PROGRESS' });
+
+    expect(todoRepository.findAllByUserId).toHaveBeenCalledWith(
+      'user-1',
+      expect.objectContaining({ month: '2026-05', status: 'IN_PROGRESS' })
+    );
+  });
+});

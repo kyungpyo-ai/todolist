@@ -1,0 +1,120 @@
+{
+  "common": {
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "deleting": "Processing...",
+    "edit": "Edit",
+    "add": "Add",
+    "confirm": "Confirm",
+    "close": "Close",
+    "loading": "Loading..."
+  },
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "emailPlaceholder": "Email address",
+    "passwordPlaceholder": "Password",
+    "namePlaceholder": "Enter name",
+    "loginButton": "Login",
+    "signupButton": "Sign Up",
+    "goToSignup": "Sign Up",
+    "goToLogin": "Login",
+    "alreadyHaveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "errors": {
+      "invalidEmail": "Please enter a valid email address.",
+      "invalidPassword": "Password must be at least 8 characters and include letters and numbers.",
+      "loginFailed": "Please check your email or password.",
+      "duplicateEmail": "This email is already in use."
+    }
+  },
+  "nav": {
+    "todos": "Todos",
+    "categories": "Categories",
+    "profile": "Profile"
+  },
+  "todo": {
+    "title": "Todo List",
+    "addTodo": "Add Todo",
+    "emptyMessage": "No todos found.",
+    "titleLabel": "Title",
+    "titlePlaceholder": "Enter todo title",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Description (optional)",
+    "startDateLabel": "Start Date",
+    "endDateLabel": "End Date",
+    "categoryLabel": "Category",
+    "statusLabel": "Status",
+    "categoryDefault": "Select category",
+    "addTitle": "Add Todo",
+    "editTitle": "Edit Todo",
+    "deleteConfirmTitle": "Delete Todo",
+    "deleteConfirmMessage": "Are you sure you want to delete this? This action cannot be undone.",
+    "status": {
+      "NOT_STARTED": "Not Started",
+      "IN_PROGRESS": "In Progress",
+      "DONE": "Done"
+    },
+    "filter": {
+      "category": "Category",
+      "status": "Status",
+      "all": "All",
+      "overdue": "Overdue",
+      "allCategories": "All Categories",
+      "allStatuses": "All Statuses"
+    },
+    "overdue": "Overdue",
+    "errors": {
+      "titleRequired": "Please enter a title.",
+      "endDateInvalid": "End date must be after start date."
+    }
+  },
+  "category": {
+    "title": "Category Management",
+    "addCategory": "Add Category",
+    "namePlaceholder": "Category name",
+    "defaultBadge": "Default",
+    "deleteConfirmTitle": "Delete Category",
+    "deleteConfirmMessage": "Todos in this category will be moved to the default category.",
+    "errors": {
+      "nameRequired": "Please enter a category name."
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "nameSection": "Change Name",
+    "passwordSection": "Change Password",
+    "languageSection": "Language Settings",
+    "deleteSection": "Delete Account",
+    "email": "Email",
+    "name": "Name",
+    "namePlaceholder": "Enter name",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "New password (8+ chars, letters & numbers)",
+    "confirmPassword": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Re-enter new password",
+    "languageLabel": "Language",
+    "deleteButton": "Delete Account",
+    "deleteDesc": "All todos and categories will be permanently deleted upon account deletion.",
+    "deleteConfirmTitle": "Delete Account",
+    "deleteConfirmMessage": "Are you sure you want to delete your account? All data will be permanently deleted.",
+    "deletePasswordLabel": "Confirm Password",
+    "deletePasswordPlaceholder": "Enter current password",
+    "language": {
+      "ko": "한국어",
+      "en": "English"
+    },
+    "errors": {
+      "passwordMismatch": "New passwords do not match.",
+      "passwordRequired": "Please enter your password.",
+      "saveFailed": "Failed to save.",
+      "deleteFailed": "Failed to delete account."
+    }
+  }
+}

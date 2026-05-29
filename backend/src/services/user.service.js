@@ -8,6 +8,8 @@ function toPublicUser(user) {
     id: user.id,
     email: user.email,
     name: user.name,
+    theme: user.theme ?? 'light',
+    language: user.language ?? 'ko',
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
   };
@@ -21,8 +23,8 @@ async function getMe(userId) {
   return toPublicUser(user);
 }
 
-async function updateMe(userId, { name, password }) {
-  if (!name && !password) {
+async function updateMe(userId, { name, password, theme, language }) {
+  if (!name && !password && theme === undefined && language === undefined) {
     throw new AppError('수정할 항목을 입력해주세요.', 400, 'INVALID_INPUT');
   }
 
@@ -35,6 +37,18 @@ async function updateMe(userId, { name, password }) {
   if (password !== undefined) {
     validatePassword(password);
     updateFields.password = await hash(password);
+  }
+
+  if (theme !== undefined) {
+    const allowed = ['light', 'dark'];
+    if (!allowed.includes(theme)) throw new AppError('허용되지 않는 테마 값입니다.', 400, 'INVALID_THEME');
+    updateFields.theme = theme;
+  }
+
+  if (language !== undefined) {
+    const allowed = ['ko', 'en'];
+    if (!allowed.includes(language)) throw new AppError('허용되지 않는 언어 코드입니다.', 400, 'INVALID_LANGUAGE');
+    updateFields.language = language;
   }
 
   const updated = await userRepository.update(userId, updateFields);

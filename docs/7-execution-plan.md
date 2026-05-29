@@ -290,15 +290,15 @@
 - `QueryClientProvider` 루트 설정
 
 **완료 조건**
-- [ ] `react-router-dom` 라우트 설정
+- [x] `react-router-dom` 라우트 설정
   - `/login`, `/signup`, `/todos`, `/categories`, `/profile` 경로 정의
   - 인증 여부에 따른 PrivateRoute 가드 구현 (미인증 시 `/login` 리다이렉트)
-- [ ] `src/api/client.ts` — fetch 또는 axios 인스턴스
+- [x] `src/api/client.ts` — fetch 또는 axios 인스턴스
   - `VITE_API_BASE_URL` 기반 baseURL 설정
   - 요청 헤더에 JWT 토큰 자동 주입
   - 401 응답 시 로그인 화면 자동 리다이렉트
-- [ ] `src/stores/authStore.ts` — Zustand 스토어 (토큰, 사용자 정보)
-- [ ] `QueryClientProvider` 앱 루트에 설정
+- [x] `src/stores/authStore.ts` — Zustand 스토어 (토큰, 사용자 정보)
+- [x] `QueryClientProvider` 앱 루트에 설정
 
 **의존성**
 - FE-01 완료
@@ -315,17 +315,17 @@
 - 페이지 컴포넌트 작성 및 라우트 연결
 
 **완료 조건**
-- [ ] `src/api/authApi.ts` — signup, login API 함수
-- [ ] `features/auth/hooks/useAuth.ts` — 로그인·회원가입 TanStack Query 뮤테이션
-- [ ] `SignupForm.tsx` — 이름·이메일·비밀번호 입력, 클라이언트 검증
-  - [ ] 이메일 형식 오류 시 즉시 안내 표시
-  - [ ] 비밀번호 조건 미충족 시 즉시 안내 표시
-  - [ ] 이메일 중복 서버 오류 표시
-- [ ] `LoginForm.tsx` — 이메일·비밀번호 입력
-  - [ ] 로그인 성공 시 토큰 저장 후 `/todos` 이동
-  - [ ] 실패 시 오류 메시지 표시
-- [ ] `SignupPage.tsx`, `LoginPage.tsx` 라우트 연결
-- [ ] 브라우저에서 회원가입 → 로그인 → 목록 화면 이동 흐름 수동 확인 (US-01)
+- [x] `src/api/authApi.ts` — signup, login API 함수
+- [x] `features/auth/hooks/useAuth.ts` — 로그인·회원가입 TanStack Query 뮤테이션
+- [x] `SignupForm.tsx` — 이름·이메일·비밀번호 입력, 클라이언트 검증
+  - [x] 이메일 형식 오류 시 즉시 안내 표시
+  - [x] 비밀번호 조건 미충족 시 즉시 안내 표시
+  - [x] 이메일 중복 서버 오류 표시
+- [x] `LoginForm.tsx` — 이메일·비밀번호 입력
+  - [x] 로그인 성공 시 토큰 저장 후 `/todos` 이동
+  - [x] 실패 시 오류 메시지 표시
+- [x] `SignupPage.tsx`, `LoginPage.tsx` 라우트 연결
+- [x] 브라우저에서 회원가입 → 로그인 → 목록 화면 이동 흐름 수동 확인 (US-01)
 
 **의존성**
 - FE-02 완료, BE-03 완료
@@ -342,12 +342,12 @@
 - 페이지 컴포넌트 작성 및 라우트 연결
 
 **완료 조건**
-- [ ] `src/api/categoryApi.ts` — 목록 조회, 생성, 수정, 삭제 API 함수
-- [ ] `features/category/hooks/useCategoryList.ts` — TanStack Query
-- [ ] `CategoryList.tsx` — 목록 표시, 기본 카테고리 편집·삭제 버튼 비활성화
-- [ ] `CategoryForm.tsx` — 이름 입력, 생성·수정 처리
-- [ ] `CategoryPage.tsx` 라우트 연결
-- [ ] 기본 카테고리 삭제 시도 시 버튼 비활성화 확인 (UE-02)
+- [x] `src/api/categoryApi.ts` — 목록 조회, 생성, 수정, 삭제 API 함수
+- [x] `features/category/hooks/useCategoryList.ts` — TanStack Query
+- [x] `CategoryList.tsx` — 목록 표시, 기본 카테고리 편집·삭제 버튼 비활성화
+- [x] `CategoryForm.tsx` — 이름 입력, 생성·수정 처리
+- [x] `CategoryPage.tsx` 라우트 연결
+- [x] 기본 카테고리 삭제 시도 시 버튼 비활성화 확인 (UE-02)
 
 **의존성**
 - FE-03 완료, BE-05 완료
@@ -365,13 +365,13 @@
 - 페이지 컴포넌트 작성 및 라우트 연결
 
 **완료 조건**
-- [ ] `src/api/todoApi.ts` — 목록 조회 API 함수 (필터 파라미터 포함)
-- [ ] `features/todo/hooks/useTodoList.ts` — TanStack Query (필터 상태 연동)
-- [ ] `TodoCard.tsx` — 제목, 날짜, 상태, Overdue 여부 표시
-- [ ] `TodoList.tsx` — 카드 목록 렌더링, 빈 상태 안내 메시지
-- [ ] `TodoFilter.tsx` — 카테고리·상태·기한 초과 필터 UI, 선택 즉시 목록 갱신
-- [ ] `TodoListPage.tsx` 라우트 연결
-- [ ] 브라우저에서 필터 변경 시 목록 즉시 갱신 확인 (US-02)
+- [x] `src/api/todoApi.ts` — 목록 조회 API 함수 (필터 파라미터 포함)
+- [x] `features/todo/hooks/useTodoList.ts` — TanStack Query (필터 상태 연동)
+- [x] `TodoCard.tsx` — 제목, 날짜, 상태, Overdue 여부 표시
+- [x] `TodoList.tsx` — 카드 목록 렌더링, 빈 상태 안내 메시지
+- [x] `TodoFilter.tsx` — 카테고리·상태·기한 초과 필터 UI, 선택 즉시 목록 갱신
+- [x] `TodoListPage.tsx` 라우트 연결
+- [x] 브라우저에서 필터 변경 시 목록 즉시 갱신 확인 (US-02)
 
 **의존성**
 - FE-04 완료, BE-06 완료
@@ -388,14 +388,14 @@
 - 공통 삭제 확인 다이얼로그 컴포넌트 구현
 
 **완료 조건**
-- [ ] `features/todo/hooks/useTodoForm.ts` — 생성·수정·삭제 TanStack Query 뮤테이션
-- [ ] `TodoForm.tsx` — 제목(필수), 설명, 시작일, 종료일, 카테고리, 상태 입력 폼
-  - [ ] `endDate >= startDate` 클라이언트 검증, 위반 시 오류 표시 (BR-04, UE-01)
-  - [ ] 수정 시 기존 값 폼에 미리 채움
-  - [ ] 허용된 상태 전이만 선택 가능하도록 옵션 제한 (BR-05)
-- [ ] `ConfirmDialog.tsx` (공통) — 삭제 확인 다이얼로그
-- [ ] 삭제 버튼 클릭 → 확인 → 목록에서 즉시 제거 흐름 확인 (UC-11)
-- [ ] 수정 완료 후 목록에 변경 내용 반영 확인 (US-02)
+- [x] `features/todo/hooks/useTodoForm.ts` — 생성·수정·삭제 TanStack Query 뮤테이션
+- [x] `TodoForm.tsx` — 제목(필수), 설명, 시작일, 종료일, 카테고리, 상태 입력 폼
+  - [x] `endDate >= startDate` 클라이언트 검증, 위반 시 오류 표시 (BR-04, UE-01)
+  - [x] 수정 시 기존 값 폼에 미리 채움
+  - [x] 허용된 상태 전이만 선택 가능하도록 옵션 제한 (BR-05)
+- [x] `ConfirmDialog.tsx` (공통) — 삭제 확인 다이얼로그
+- [x] 삭제 버튼 클릭 → 확인 → 목록에서 즉시 제거 흐름 확인 (UC-11)
+- [x] 수정 완료 후 목록에 변경 내용 반영 확인 (US-02)
 
 **의존성**
 - FE-05 완료
@@ -411,16 +411,36 @@
 - 회원 탈퇴 플로우 구현: 비밀번호 확인 다이얼로그 → 탈퇴 → 토큰 제거 → 로그인 이동
 
 **완료 조건**
-- [ ] `src/api/userApi.ts` — 내 정보 조회·수정·탈퇴 API 함수 (PATCH/DELETE `/api/users/me`)
-- [ ] `ProfilePage.tsx`
-  - [ ] 이름 변경 폼
-  - [ ] 비밀번호 변경 폼 (현재·새·확인 3개 입력, 불일치 시 즉시 안내)
-  - [ ] 이름·비밀번호 모두 미변경 시 저장 버튼 비활성화
-  - [ ] 회원 탈퇴 버튼 → 비밀번호 확인 다이얼로그 → 탈퇴 처리 (UC-04)
-- [ ] 탈퇴 후 로컬 토큰 제거 및 로그인 화면 이동 확인
+- [x] `src/api/userApi.ts` — 내 정보 조회·수정·탈퇴 API 함수 (PATCH/DELETE `/api/users/me`)
+- [x] `ProfilePage.tsx`
+  - [x] 이름 변경 폼
+  - [x] 비밀번호 변경 폼 (새 비밀번호·확인 2개 입력, 불일치 시 즉시 안내)
+  - [x] 이름·비밀번호 모두 미변경 시 저장 버튼 비활성화
+  - [x] 회원 탈퇴 버튼 → 비밀번호 확인 다이얼로그 → 탈퇴 처리 (UC-04)
+- [x] 탈퇴 후 로컬 토큰 제거 및 로그인 화면 이동 확인
 
 **의존성**
 - FE-03 완료, BE-04 완료
+
+---
+
+### FE-08 공통 레이아웃 (Header + Icon Nav)
+
+**작업 내용**
+- Header 컴포넌트 구현: 로고, 사용자 이름, 로그아웃 버튼
+- Icon Nav 컴포넌트 구현: 할일·카테고리·내 정보 아이콘, 활성 경로 표시
+- Layout 컴포넌트로 인증된 페이지 감싸기
+- App.tsx에서 PrivateRoute를 Layout으로 교체
+
+**완료 조건**
+- [x] `src/components/Header.tsx` — 44px, primary-900 배경, 로고·사용자명·로그아웃
+- [x] `src/components/IconNav.tsx` — 56px, 할일/카테고리/내 정보 아이콘, 활성 accent bar
+- [x] `src/components/Layout.tsx` — Header + IconNav + Content 전체 레이아웃
+- [x] `App.tsx` 업데이트 — PrivateRoute를 Layout으로 감싸기
+- [x] 브라우저에서 각 페이지 이동 확인
+
+**의존성**
+- FE-07 완료
 
 ---
 
@@ -438,13 +458,13 @@
 - BE-04 `PATCH /api/users/me`에 `theme` 필드 처리 추가
 
 **완료 조건**
-- [ ] `src/styles/theme.css` — CSS 변수 기반 light·dark 테마 정의
-- [ ] `src/stores/uiStore.ts` — Zustand 테마 상태 (`theme: 'light' | 'dark'`)
-- [ ] 헤더 토글 버튼 클릭 시 즉시 테마 전환
-- [ ] `PATCH /api/users/me` 로 `theme` 값 서버 저장
-- [ ] 로그인 시 서버에서 받은 `theme` 값으로 자동 적용
-- [ ] 서버 저장 실패 시 클라이언트 상태 유지 (예외 흐름)
-- [ ] BE-04의 `PATCH /api/users/me` 에 `theme` 필드 처리 추가 확인
+- [x] `src/styles/theme.css` — CSS 변수 기반 light·dark 테마 정의
+- [x] `src/stores/uiStore.ts` — Zustand 테마 상태 (`theme: 'light' | 'dark'`)
+- [x] 헤더 토글 버튼 클릭 시 즉시 테마 전환
+- [x] `PATCH /api/users/me` 로 `theme` 값 서버 저장
+- [x] 로그인 시 서버에서 받은 `theme` 값으로 자동 적용
+- [x] 서버 저장 실패 시 클라이언트 상태 유지 (예외 흐름)
+- [x] BE-04의 `PATCH /api/users/me` 에 `theme` 필드 처리 추가 확인
 
 **의존성**
 - FE-07 완료, DB-03 완료 (v2 컬럼)
@@ -462,13 +482,13 @@
 - BE-04 `PATCH /api/users/me`에 `language` 필드 처리 추가
 
 **완료 조건**
-- [ ] `i18next`, `react-i18next` 설치 및 설정
-- [ ] `src/i18n/ko.json`, `src/i18n/en.json` — 모든 UI 레이블·버튼·오류 메시지 번역 키 작성
-- [ ] `src/stores/uiStore.ts` — Zustand 언어 상태 (`language: 'ko' | 'en'`)
-- [ ] `ProfilePage.tsx` 언어 선택 드롭다운 — 선택 즉시 전체 UI 언어 전환
-- [ ] `PATCH /api/users/me` 로 `language` 값 서버 저장
-- [ ] 로그인 시 서버에서 받은 `language` 값으로 자동 적용
-- [ ] BE-04의 `PATCH /api/users/me` 에 `language` 필드 처리 추가 확인
+- [x] `i18next`, `react-i18next` 설치 및 설정
+- [x] `src/i18n/ko.json`, `src/i18n/en.json` — 모든 UI 레이블·버튼·오류 메시지 번역 키 작성
+- [x] `src/stores/uiStore.ts` — Zustand 언어 상태 (`language: 'ko' | 'en'`)
+- [x] `ProfilePage.tsx` 언어 선택 드롭다운 — 선택 즉시 전체 UI 언어 전환
+- [x] `PATCH /api/users/me` 로 `language` 값 서버 저장
+- [x] 로그인 시 서버에서 받은 `language` 값으로 자동 적용
+- [x] BE-04의 `PATCH /api/users/me` 에 `language` 필드 처리 추가 확인
 
 **의존성**
 - FE-08 완료 (uiStore 공유)

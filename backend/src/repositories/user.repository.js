@@ -7,6 +7,8 @@ function toUser(row) {
     email: row.email,
     password: row.password,
     name: row.name,
+    theme: row.theme ?? 'light',
+    language: row.language ?? 'ko',
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };
@@ -44,6 +46,14 @@ async function update(id, fields) {
   if (fields.password !== undefined) {
     setClauses.push(`password = $${idx++}`);
     values.push(fields.password);
+  }
+  if (fields.theme !== undefined) {
+    setClauses.push(`theme = $${idx++}`);
+    values.push(fields.theme);
+  }
+  if (fields.language !== undefined) {
+    setClauses.push(`language = $${idx++}`);
+    values.push(fields.language);
   }
 
   values.push(id);

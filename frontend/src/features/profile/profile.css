@@ -1,0 +1,97 @@
+.profile-page {
+  background: var(--color-neutral-050);
+  min-height: 100%;
+  padding: 24px;
+  max-width: 560px;
+}
+
+.profile-page-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-neutral-900);
+  margin: 0 0 24px;
+}
+
+.profile-section {
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.profile-section--danger {
+  border-color: var(--color-danger-100);
+}
+
+.profile-section-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--color-neutral-900);
+  margin: 0 0 16px;
+}
+
+.profile-section-desc {
+  font-size: var(--font-sm);
+  color: var(--color-neutral-500);
+  margin: 0 0 12px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.profile-label {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--color-neutral-700);
+}
+
+.profile-required {
+  color: var(--color-danger-600);
+}
+
+.profile-input {
+  width: 100%;
+  padding: 6px 10px;
+  font-size: var(--font-base);
+  font-family: var(--font-family);
+  color: var(--color-neutral-900);
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.profile-input:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.profile-input--error {
+  border-color: var(--color-danger-600);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.profile-input--readonly {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-500);
+  cursor: not-allowed;
+}
+
+.profile-error {
+  font-size: var(--font-xs);
+  color: var(--color-danger-600);
+  margin: 2px 0 0;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}

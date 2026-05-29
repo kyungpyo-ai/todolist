@@ -1,0 +1,119 @@
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.auth-card-header {
+  background: var(--color-primary-900);
+  padding: 20px 32px;
+}
+
+.auth-card-title {
+  color: var(--color-white);
+  font-size: var(--font-lg);
+  font-weight: 700;
+  margin: 0;
+}
+
+.auth-form {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.auth-label {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--color-neutral-700);
+}
+
+.auth-input {
+  padding: 6px 10px;
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-base);
+  font-family: var(--font-family);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.auth-input:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.auth-input--error {
+  border-color: var(--color-danger-600);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.10);
+}
+
+.auth-input--error:focus {
+  border-color: var(--color-danger-600);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.10);
+}
+
+.auth-field-error {
+  font-size: var(--font-xs);
+  color: var(--color-danger-600);
+  margin: 4px 0 0 0;
+}
+
+.auth-server-error {
+  font-size: var(--font-sm);
+  color: var(--color-danger-600);
+  background: var(--color-danger-100);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+}
+
+.auth-btn-primary {
+  background: var(--color-primary-500);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 6px 14px;
+  font-size: var(--font-base);
+  font-weight: 500;
+  font-family: var(--font-family);
+  width: 100%;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  margin-top: 4px;
+}
+
+.auth-btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-700);
+}
+
+.auth-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.auth-link-text {
+  font-size: var(--font-sm);
+  color: var(--color-neutral-500);
+  text-align: center;
+  margin: 0;
+}
+
+.auth-link {
+  color: var(--color-primary-500);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}

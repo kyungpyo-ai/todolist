@@ -11,8 +11,8 @@ async function getMe(req, res, next) {
 
 async function updateMe(req, res, next) {
   try {
-    const { name, password } = req.body;
-    const user = await userService.updateMe(req.userId, { name, password });
+    const { name, password, theme, language } = req.body;
+    const user = await userService.updateMe(req.userId, { name, password, theme, language });
     res.status(200).json({ success: true, data: { user } });
   } catch (err) {
     next(err);
